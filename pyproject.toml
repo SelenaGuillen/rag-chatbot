@@ -10,6 +10,9 @@ python = "^3.10"
 uvicorn = "^0.31.0"
 fastapi = "^0.115.0"
 cohere = "^5.10.0"
+python-multipart = "^0.0.12"
+llama-index = "^0.11.14"
+isort = "^5.13.2"
 
 
 [build-system]

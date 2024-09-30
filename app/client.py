@@ -1,3 +1,3 @@
 import cohere
 
-co = cohere.Client()
+co = cohere.Client("")
