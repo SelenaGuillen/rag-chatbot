@@ -1,5 +1,27 @@
 # rag-chatbot
 
+```
+rag-chatbot/
+│
+├── app/
+│   ├── client.py
+│   ├── components.py
+│   ├── main.py
+│   ├── routes.py
+│   └── services.py
+│
+└── data/
+    └── txt_docs/
+```
+This structure is what I'm used to with Java, with routes being controllers, services being the service layer, and client calling source API/data. I did try to keep the RAG components separate just to keep things cleaner.
+To start, just ensure the CO_API_KEY is included in .env and run `uvicorn app.main:app --reload` 
+
+## RAG 
+- Used LLamaIndex over LangChain for simplicity
+- Command R, passed in by default through cohere, was chosen because it is optimized for RAG and has an easy-to-use chat api. 
+- Used SentenceSplitter to chunk because it has a preference for complete sentences and is less likely to output fragments.
+
+
 ## What did you think of the project?
 Fun, but difficult for sure. This was my first time really getting into the implementation details for a RAG-based architecture, so it might still be missing a few of the key components. 
 I did enjoy learning about RAG and even explored other variations such as Order-Preserving RAG (not implemented, just looked into). 
