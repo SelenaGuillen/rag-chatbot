@@ -15,6 +15,9 @@ llama-index = "^0.11.14"
 isort = "^5.13.2"
 black = "^24.8.0"
 ruff = "^0.6.8"
+llama-index-llms-cohere = "^0.3.0"
+llama-index-embeddings-cohere = "^0.2.1"
+python-dotenv = "^1.0.1"
 
 
 [build-system]

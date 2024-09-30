@@ -1155,6 +1155,21 @@ typing-inspect = ">=0.8.0"
 wrapt = "*"
 
 [[package]]
+name = "llama-index-embeddings-cohere"
+version = "0.2.1"
+description = "llama-index embeddings cohere integration"
+optional = false
+python-versions = "<4.0,>=3.8.1"
+files = [
+    {file = "llama_index_embeddings_cohere-0.2.1-py3-none-any.whl", hash = "sha256:216409ca45da4301dcaab99e725b2d8e6868cbce70ff906c06d22b1221d8cdbc"},
+    {file = "llama_index_embeddings_cohere-0.2.1.tar.gz", hash = "sha256:cad42f7422e1a55c7161fe5f72e958e4d6eb68097e292de582b17f83197526d9"},
+]
+
+[package.dependencies]
+cohere = ">=5.2.5,<6.0.0"
+llama-index-core = ">=0.11.0,<0.12.0"
+
+[[package]]
 name = "llama-index-embeddings-openai"
 version = "0.2.5"
 description = "llama-index embeddings openai integration"
@@ -1222,6 +1237,21 @@ langchain = ["langchain (>=0.0.303)"]
 local-models = ["optimum[onnxruntime] (>=1.13.2,<2.0.0)", "sentencepiece (>=0.1.99,<0.2.0)", "transformers[torch] (>=4.33.1,<5.0.0)"]
 postgres = ["asyncpg (>=0.28.0,<0.29.0)", "pgvector (>=0.1.0,<0.2.0)", "psycopg2-binary (>=2.9.9,<3.0.0)"]
 query-tools = ["guidance (>=0.0.64,<0.0.65)", "jsonpath-ng (>=1.6.0,<2.0.0)", "lm-format-enforcer (>=0.4.3,<0.5.0)", "rank-bm25 (>=0.2.2,<0.3.0)", "scikit-learn", "spacy (>=3.7.1,<4.0.0)"]
+
+[[package]]
+name = "llama-index-llms-cohere"
+version = "0.3.0"
+description = "llama-index llms cohere integration"
+optional = false
+python-versions = "<4.0,>=3.8.1"
+files = [
+    {file = "llama_index_llms_cohere-0.3.0-py3-none-any.whl", hash = "sha256:edf7aab95c21c596ccaf8784558809046075d3cfc94157f3ff9ae6b446deb6fe"},
+    {file = "llama_index_llms_cohere-0.3.0.tar.gz", hash = "sha256:2aa6b9ba195c7a6d825f36f555718114198ad480160718fda19ec605aa3056d7"},
+]
+
+[package.dependencies]
+cohere = ">=5.1.1,<6.0.0"
+llama-index-core = ">=0.11.0,<0.12.0"
 
 [[package]]
 name = "llama-index-llms-openai"
@@ -1985,6 +2015,20 @@ files = [
 
 [package.dependencies]
 six = ">=1.5"
+
+[[package]]
+name = "python-dotenv"
+version = "1.0.1"
+description = "Read key-value pairs from a .env file and set them as environment variables"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "python-dotenv-1.0.1.tar.gz", hash = "sha256:e324ee90a023d808f1959c46bcbc04446a10ced277783dc6ee09987c37ec10ca"},
+    {file = "python_dotenv-1.0.1-py3-none-any.whl", hash = "sha256:f7b63ef50f1b690dddf550d03497b66d609393b40b564ed0d674909a68ebf16a"},
+]
+
+[package.extras]
+cli = ["click (>=5.0)"]
 
 [[package]]
 name = "python-multipart"
@@ -2875,4 +2919,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "37d226d5f00210ce72b3bc4cc11071a540f23aa548d6a21c236be54033b8ca04"
+content-hash = "7cffb2e47e83bc2e6293516d1c7215e575d19cffef11d3e9fb6c741016b7bba6"
