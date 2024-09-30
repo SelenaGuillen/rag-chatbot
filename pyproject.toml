@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "rag-chatbot"
+version = "0.1.0"
+description = ""
+authors = ["selena <selenaxguillen@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+uvicorn = "^0.31.0"
+fastapi = "^0.115.0"
+cohere = "^5.10.0"
+python-multipart = "^0.0.12"
+llama-index = "^0.11.14"
+isort = "^5.13.2"
+black = "^24.8.0"
+ruff = "^0.6.8"
+llama-index-llms-cohere = "^0.3.0"
+llama-index-embeddings-cohere = "^0.2.1"
+python-dotenv = "^1.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

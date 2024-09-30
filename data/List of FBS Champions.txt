@@ -1,0 +1,35 @@
+FBS Football Championship History:
+Year: 2023 Champion: Michigan Coach: Jim Harbaugh
+Year: 2022 Champion: Georgia Coach: Kirby Smart
+Year: 2021 Champion: Georgia Coach: Kirby Smart
+Year: 2020 Champion: Alabama Coach: Nick Saban
+Year: 2019 Champion: LSU Coach: Ed Orgeron
+Year: 2018 Champion: Clemson Coach: Dabo Swinney
+Year: 2017 Champion: Alabama Coach: Nick Saban
+Year: 2016 Champion: Clemson Coach: Dabo Swinney
+Year: 2015 Champion: Alabama Coach: Nick Saban
+Year: 2014 Champion: Ohio State Coach: Urban Meyer
+Year: 2013 Champion: Florida State Coach: Jimbo Fisher
+Year: 2012 Champion: Alabama Coach: Nick Saban
+Year: 2011 Champion: Alabama Coach: Nick Saban
+Year: 2010 Champion: Auburn Coach: Gene Chizik
+Year: 2009 Champion: Alabama Coach: Nick Saban
+Year: 2008 Champion: Florida Coach: Urban Meyer
+Year: 2007 Champion: LSU Coach: Les Miles
+Year: 2006 Champion: Florida Coach: Urban Meyer
+Year: 2005 Champion: Texas Coach: Mack Brown
+Year: 2004 Champion: USC Coach: Pete Carroll
+Year: 2003 Champion: LSU Coach: Nick Saban
+Year: 2002 Champion: Ohio State Coach: Jim Tressel
+Year: 2001 Champion: Miami (FL) Coach: Larry Coker
+Year: 2000 Champion: Oklahoma Coach: Bob Stoops
+Year: 1999 Champion: Florida State Coach: Bobby Bowden
+Year: 1998 Champion: Tennessee Coach: Phillip Fulmer
+Year: 1997 Champion: Michigan Coach: Lloyd Carr
+Year: 1996 Champion: Florida Coach: Steve Spurrier
+Year: 1995 Champion: Nebraska Coach: Tom Osborne
+Year: 1994 Champion: Nebraska Coach: Tom Osborne
+Year: 1993 Champion: Florida State Coach: Bobby Bowden
+Year: 1992 Champion: Alabama Coach: Gene Stallings
+Year: 1991 Champion: Washington Coach: Don James
+Year: 1990 Champion: Georgia Tech Coach: Bobby Ross
