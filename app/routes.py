@@ -2,6 +2,7 @@ from fastapi import APIRouter
 
 from app.components import create_chunks, fetch_index, load_documents
 from app.services import generate_response_based_on_docs
+from app.util import convert_docs_to_data
 
 router = APIRouter()
 
@@ -25,3 +26,8 @@ async def get_nodes():
 @router.get("/index", tags=["components"])
 async def get_index():
     return fetch_index()
+
+
+@router.get("/docs_to_data", tags=["components"])
+async def get_docs_to_data():
+    return convert_docs_to_data(load_documents())

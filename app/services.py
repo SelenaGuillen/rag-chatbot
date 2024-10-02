@@ -1,5 +1,10 @@
+import json
+
+from llama_index.core.retrievers import VectorIndexAutoRetriever
+
 from app.client import co
 from app.components import load_documents
+from app.util import convert_docs_to_data
 
 
 # TODO: Replace with pydantic or models from llama_index
@@ -15,16 +20,17 @@ def generate_response_based_on_docs(user_prompt: str) -> str:
     """
     # Loading in all documents vs chunking/indexing/flitering
     docs = load_documents()
-    doc_text = ""
-    for doc in docs:
-        doc_text += doc.text
+    data = convert_docs_to_data(docs)
 
-    # TODO: Replace all docs loaded into context with index
+    # VectorStoreIndex
     # index = fetch_index()
 
-    prompt = f"Based on the following prompt: {user_prompt}, use only this information: {doc_text} to generate a response. Otherwise, state 'I cannot generate a response based on this information'."
+    prompt = f"Answer based on the following prompt using document context: {user_prompt}. Otherwise, state 'I cannot generate a response based on this information'."
+
     response = co.chat(
-        message=prompt,
+        documents=data,
+        model="command-r",
+        messages=[{"role": "user", "content": prompt}],
         temperature=0,
     )
     return response

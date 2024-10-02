@@ -6,9 +6,10 @@ from llama_index.core import Settings
 from llama_index.embeddings.cohere import CohereEmbedding
 
 load_dotenv()
+
 CO_API_KEY = os.getenv("CO_API_KEY")
 
-co = cohere.Client(CO_API_KEY)
+co = cohere.ClientV2(CO_API_KEY)
 
 embed_model = CohereEmbedding(
     cohere_api_key=CO_API_KEY,

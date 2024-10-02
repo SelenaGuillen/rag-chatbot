@@ -21,7 +21,7 @@ def create_chunks(docs: List[Document]) -> List[TextNode]:
     Splits up the documents into chunks with preference for complete sentences.
     SentenceSplitter is less likely to output hanging sentences or parts of sentences at the end of a chunk.
     """
-    splitter = SentenceSplitter(chunk_size=500)
+    splitter = SentenceSplitter(chunk_size=500, chunk_overlap=300)
     nodes = splitter.get_nodes_from_documents(docs)
     return nodes
 
