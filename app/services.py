@@ -25,9 +25,11 @@ def generate_response_based_on_docs(user_prompt: str) -> str:
     # VectorStoreIndex
     # index = fetch_index()
 
-    prompt = f"Answer based on the following prompt using document context: {user_prompt}. Otherwise, state 'I cannot generate a response based on this information'."
+    prompt = f"Only use data documents as a source. Answer the prompt: {user_prompt}. If no answer is found, please say 'I cannot answer that with my current knowledge'."
 
     response = co.chat(
+        # max limit is 125k for context/input and 4k for output
+        max_tokens=2000,
         documents=data,
         model="command-r",
         messages=[{"role": "user", "content": prompt}],
