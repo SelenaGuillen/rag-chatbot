@@ -1,7 +1,3 @@
-import json
-
-from llama_index.core.retrievers import VectorIndexAutoRetriever
-
 from app.client import co
 from app.components import load_documents
 from app.util import convert_docs_to_data
@@ -21,9 +17,6 @@ def generate_response_based_on_docs(user_prompt: str) -> str:
     # Loading in all documents vs chunking/indexing/flitering
     docs = load_documents()
     data = convert_docs_to_data(docs)
-
-    # VectorStoreIndex
-    # index = fetch_index()
 
     prompt = f"Only use data documents as a source. Answer the prompt: {user_prompt}. If no answer is found, please say 'I cannot answer that with my current knowledge'."
 
