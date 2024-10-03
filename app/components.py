@@ -34,7 +34,8 @@ def create_chunks(docs: List[Document]) -> List[TextNode]:
     logger.info(f"Created {len(chunks)} chunks from the documents.")
     return chunks
 
-def create_embeddings(chunks: List[TextNode]) -> List[float]:
+# TODO: Could try adding id prefixes to differentiate which chunk belongs to which document
+def create_embeddings_from_chunks(chunks: List[TextNode]) -> List[List[float]]:
     """
     Create embeddings from the chunks using the cohere embed model from client.
     """
@@ -50,3 +51,18 @@ def create_embeddings(chunks: List[TextNode]) -> List[float]:
     logger.info(f"Created {len(embeddings)} embeddings from chunks.")
     return embeddings
 
+def create_embedding_from_user_query(query: str) -> List[float]:
+    """
+    Create an embedding from the user query using the cohere embed model from client.
+    """
+    # search_query to query vector db
+    # returns type EmbedByTypeResponse 
+    embeddings_response = co.embed(
+        texts=[query],
+        model=embed_model.model_name,
+        input_type="search_query",
+        embedding_types=['float']
+    )
+    query_embedding = embeddings_response.embeddings.float[0]
+    logger.info(f"Created an embedding from the user query.")
+    return query_embedding
