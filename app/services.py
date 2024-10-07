@@ -1,9 +1,10 @@
 from app.client import co
-from app.components import load_documents
+from app.util import convert_to_documents
+from app.vector_db import query_for_most_relevant, rerank_chunks
 
 
 # TODO: Replace with pydantic or models from llama_index
-def generate_response_based_on_docs(user_prompt: str) -> str:
+async def generate_response_based_on_docs(user_prompt: str) -> str:
     """
     Generate a response based on the user prompt and the documents loaded from the data directory.
 
@@ -13,18 +14,17 @@ def generate_response_based_on_docs(user_prompt: str) -> str:
     Returns:
     str: The response generated based on the prompt and the
     """
-    # Loading in all documents vs chunking/indexing/flitering
-    docs = load_documents()
-    doc_text = ""
-    for doc in docs:
-        doc_text += doc.text
+    matches = await query_for_most_relevant(user_prompt)
+    reranked_data = await rerank_chunks(matches, user_prompt)
+    data = await convert_to_documents(reranked_data)
 
-    # TODO: Replace all docs loaded into context with index
-    # index = fetch_index()
-
-    prompt = f"Based on the following prompt: {user_prompt}, use only this information: {doc_text} to generate a response. Otherwise, state 'I cannot generate a response based on this information'."
+    prompt = f"Only use documents as a source. Answer the prompt: {user_prompt}. If no answer is found, please say 'I cannot answer that with my current knowledge'."
     response = co.chat(
-        message=prompt,
+        # max limit is 125k for context/input and 4k for output
+        max_tokens=2000,
+        documents=data,
+        model="command-r",
+        messages=[{"role": "user", "content": prompt}],
         temperature=0,
     )
     return response

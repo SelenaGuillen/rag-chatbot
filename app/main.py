@@ -13,7 +13,7 @@ app.add_middleware(
 )
 
 
-@app.get("/ping")
+@app.get("/ping", tags=["ping"])
 def pong():
     return {"ping": "pong!"}
 
