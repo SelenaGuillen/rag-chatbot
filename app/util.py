@@ -1,13 +1,9 @@
-from typing import List
-
-from llama_index.core.schema import Document
-
-
-def convert_docs_to_data(docs: List[Document]) -> List[object]:
+async def convert_to_documents(data: dict) -> list:
     """
-    Convert documents to data.
+    Convert to documents.
     """
-    data = []
-    for doc in docs:
-        data.append({"data": {"id": doc.doc_id, "text": doc.text}})
-    return data
+    documents = []
+    db_docs = data.get("data")
+    for doc in db_docs:
+        documents.append(doc.get("document").get("text"))
+    return documents

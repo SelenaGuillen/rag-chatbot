@@ -5,8 +5,10 @@ from dotenv import load_dotenv
 from pinecone import Pinecone
 
 from app.client import RERANK_MODEL
-from app.components import (create_embedding_from_user_query,
-                            format_embeddings_for_vector_db)
+from app.components import (
+    create_embedding_from_user_query,
+    format_embeddings_for_vector_db,
+)
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)

@@ -1,9 +1,13 @@
 from fastapi import APIRouter
 
-from app.components import (create_chunks, create_embedding_from_user_query,
-                            create_embeddings_from_chunks, load_documents)
+from app.components import (
+    create_chunks,
+    create_embedding_from_user_query,
+    create_embeddings_from_chunks,
+    load_documents,
+)
 from app.services import generate_response_based_on_docs
-from app.util import convert_docs_to_data
+from app.util import convert_to_documents
 from app.vector_db import populate_db, query_for_most_relevant, rerank_chunks
 
 router = APIRouter()
@@ -11,7 +15,7 @@ router = APIRouter()
 
 @router.get("/prompt", tags=["rag-api"])
 async def ask_prompt(prompt: str):
-    return generate_response_based_on_docs(prompt)
+    return await generate_response_based_on_docs(prompt)
 
 
 @router.get("/documents", tags=["components"])
@@ -57,5 +61,6 @@ async def get_top_chunks_after_rerank(query: str):
 
 
 @router.get("/docs_to_data", tags=["util"])
-async def get_docs_to_data():
-    return convert_docs_to_data(load_documents())
+async def get_docs_to_data(query: str):
+    reranked_chunks = await get_top_chunks_after_rerank(query)
+    return await convert_to_documents(reranked_chunks)

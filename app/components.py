@@ -28,8 +28,7 @@ def create_chunks(docs: List[Document]) -> List[TextNode]:
     Splits up the documents into chunks with preference for complete sentences.
     SentenceSplitter is less likely to output hanging sentences or parts of sentences at the end of a chunk.
     """
-    # Can experiment with chunk size and overlap once we have vector store index
-    # data = convert_docs_to_data(docs)
+    # Can experiment with chunk size and overlap once we have vector db
     splitter = SentenceSplitter(chunk_size=500, chunk_overlap=0)
     chunks = splitter.get_nodes_from_documents(docs)
     logger.info(f"Created {len(chunks)} chunks from the documents.")
@@ -80,19 +79,3 @@ def create_embedding_from_user_query(query: str) -> List[float]:
     query_embedding = embeddings_response.embeddings.float[0]
     logger.info("Created an embedding from the user query.")
     return query_embedding
-
-
-# def rerank_chunks(matches: dict, query: str):
-#     """
-#     Rerank the chunks based on the matches from the vector db.
-#     """
-#     # use indexes to get documents?
-
-#     rerank_response = co.rerank(
-#         query=query,
-#         documents=documents,
-#         top_n=3,
-#         model=RERANK_MODEL
-#     )
-#     # top_chunks_after_rerank = [[result.index] for result in rerank_response.results]
-#     return rerank_response
